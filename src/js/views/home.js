@@ -1,15 +1,25 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect, useContext} from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.js";
+import { CharactersCard } from "../component/CharactersCard.js";
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	const [state, setState] = useState({});
+    const { store, actions } = useContext(Context);
+    console.log(state);
+    useEffect(() => {
+        actions.getAllCharacters();
+    }, []);
+    console.log(store.characters);
+    return (
+        <div className="container mt-5">
+            <h1 className="text-danger mb-3">Characters</h1>
+            <ul className="list-group pull-down">
+                {store.characters.map(item => (
+                <CharactersCard key={item.id} name={item.name} eyeColor= {item.eyeColor}/>
+                ))}
+            </ul>
+        </div>
+	);
+}
