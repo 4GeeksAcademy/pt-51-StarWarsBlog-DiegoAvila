@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { CharactersCard } from "../component/CharactersCard.js";
 import "../../styles/home.css";
+import { Navbar } from "../component/navbar.js";
 
 export const Home = () => {
 	const [state, setState] = useState({});
@@ -17,7 +18,7 @@ export const Home = () => {
             <h1 className="text-danger mb-3">Characters</h1>
             <ul className="list-group pull-down">
                 {store.characters.map(item => (
-                <CharactersCard key={item.id} name={item.name} eyeColor= {item.eyeColor}/>
+                <CharactersCard key={item.id} name={item.name}/>
                 ))}
             </ul>
         </div>
