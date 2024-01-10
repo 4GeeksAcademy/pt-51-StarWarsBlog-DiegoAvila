@@ -7,9 +7,18 @@ export const Navbar = () => {
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">Start Wars</span>
 			</Link>
-			<div className="ml-auto">
+			<div className="ml-auto p-2">
 				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+				<div className="btn-group dropstart">
+					<button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						Dropstart
+					</button>
+					<ul className="dropdown-menu">
+						<li><a className="dropdown-item" href="#">Action</a></li>
+            			<li><a className="dropdown-item" href="#">Another action</a></li>
+           				<li><a className="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				</div>
 				</Link>
 			</div>
 		</nav>
